@@ -26,6 +26,13 @@ class Login extends Component {
       });
     }
   }
+
+  componentDidMount() {
+    // If logged in and user navigates to Login page, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
   
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
@@ -71,7 +78,7 @@ class Login extends Component {
                     type="email"
                     className={classnames("", {
                         invalid: errors.email || errors.emailnotfound
-                      })}
+                        })}
                     />
                     <label htmlFor="email">Email</label>
                     <span className="red-text">
@@ -88,7 +95,7 @@ class Login extends Component {
                     type="password"
                     className={classnames("", {
                         invalid: errors.password || errors.passwordincorrect
-                      })}
+                        })}
                     />
                     <label htmlFor="password">Password</label>
                     <span className="red-text">
