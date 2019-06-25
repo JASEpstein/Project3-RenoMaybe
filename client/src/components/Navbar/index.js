@@ -3,6 +3,7 @@ import M from 'materialize-css';
 import '@material-ui/icons';
 //import SignIn from '../SignIn/index'
 
+
 class Navbar extends Component {
   componentDidMount() {
     M.AutoInit();
@@ -25,6 +26,7 @@ class Navbar extends Component {
       <ul id="auth-dropdown" className="dropdown-content">
         <li><a href="/login">Sign In</a></li>
         <li><a href="/register">Register</a></li>
+        <li>{this.props.children}</li>
       </ul>
     </div>
     
