@@ -12,9 +12,9 @@ class Navbar extends Component {
   render() {
     return (
     <div id='navbar'>
-      <nav>
-        <div className="nav-wrapper">
-          <a href="/" className="brand-logo"><i className="large material-icons">home</i> RenoMaybe</a>
+      <nav className="indigo accent-4 text-white">
+        <div className="nav-wrapper row">
+          <a href="/" className="brand-logo col 2"><i className="large material-icons">home</i> RenoMaybe</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="#!">Home Value</a></li>
             <li><a href="#!">Calculator</a></li>
