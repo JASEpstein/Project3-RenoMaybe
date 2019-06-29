@@ -31,7 +31,7 @@ class Login extends Component {
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       alert("You are already logged in.")
-        this.props.history.push("/");
+        //this.context.history.push("/");
     }
   }
   
@@ -114,6 +114,7 @@ class Login extends Component {
                     }}
                     type="submit"
                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                    onClick={this.props.updateState}
                     >
                     Login
                     </button>

@@ -1,14 +1,52 @@
 import React, { Component } from 'react';
-//import 'materialize-css';
-//import LocationSearchInput from './AutocompleteInput';
-import SearchContainer from './SearchContainer'
+import SearchForm from '../SearchForm/SearchForm';
+import Landing from '../Landing/index';
 
 class Home extends Component {
+  state = {
+    pageList: ["landing","search","whereToReno","selectReno","selectQuality","results"],
+    currentPage: 'landing',
+    address: {},
+    zillowData: {},
+  };
+
+  // processAddress() {
+    // make request to zillow
+      // .THEN
+        // put the data from zillow into state (this.setState({ zillowData: {...} }))
+      // .THEN
+        // progress to next step
+  //}
+
   render() {
+
+    const findCurrentIndex = () => {
+      return this.state.pageList.findIndex((element) => {
+        return element === this.state.currentPage;
+      }) 
+    }
+
+    const goToNextCard = () => {
+      let currentIndex = findCurrentIndex();
+      this.setState({
+        currentPage: this.state.pageList[currentIndex + 1]
+      })
+    };
+
+    const goToPreviousCard = () => {
+      let currentIndex = findCurrentIndex();
+      this.setState({
+        currentPage: this.state.pageList[currentIndex - 1]
+      })
+    }
+
+
+
     return (
     <div className="Home">
-      <h1>RenoMaybe</h1>
-      <SearchContainer />
+      {this.state.currentPage === "landing" && <Landing goToNextCard={goToNextCard}/>}
+      {this.state.currentPage === "search" && <SearchForm processAddress={this.processAddress} goToPreviousCard={goToPreviousCard}/>}
+      
     </div>
     );
   }
