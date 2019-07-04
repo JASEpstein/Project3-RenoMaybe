@@ -1,9 +1,6 @@
 //Core Imports
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import '@material-ui/core';
-import '@material-ui/icons';
-import M from 'materialize-css';
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../../utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "../../actions/authActions";
@@ -26,6 +23,10 @@ import SearchResults from '../SearchResults';
 import SearchForm from '../SearchForm/SearchForm';
 import AppBar from '../Navbar/AppBar';
 import Landing from '../Landing';
+import RenoStep1 from '../Renovations/Step1';
+import RenoStep2 from '../Renovations/Step2';
+import RenoStep3 from '../Renovations/Step3';
+
 
 
 // Check for token to keep user logged in
@@ -57,10 +58,11 @@ class App extends Component {
       formZip: ''
     },
     zillowData: {},
+    renoChoices: {},
   }
   //Methods
   zillowRequest = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const proxyURL = 'https://peaceful-island-88132.herokuapp.com/'
     return axios({
       method: 'post',
@@ -84,6 +86,7 @@ class App extends Component {
   }
   
 
+
   handleChange = (event, name) => {
     this.setState({
       formInput:{
@@ -92,7 +95,18 @@ class App extends Component {
       }
     })
   }
-  //Render
+
+  handleChangeReno = (event, name) => {
+    this.setState({
+      renoChoices:{
+        ...this.state.renoChoices,
+        [name]: event.target.value
+      }
+    })
+  }
+  
+ 
+//Render
   render() {
     return (
       <Provider store={store}>
@@ -108,9 +122,30 @@ class App extends Component {
                   <SearchForm {...routeProps} 
                   zillowRequest={this.zillowRequest}
                   formInput={this.state.formInput}
+                  handleChange={this.handleChange}
                   />
-                                                } />
-            <Route exact path="/search-results" component={SearchResults} />
+                } />
+            <Route exact path="/search-results" render={(routeProps) =>
+                  <SearchResults {...routeProps}
+                  zEstimate={this.state.zillowData.zEstimate}
+                  asOf={this.state.zillowData.asOf}
+                  />
+                } />
+            <Route exact path="/reno-step1" render={(routeProps) =>
+                  <RenoStep1 {...routeProps}
+                  handleChange={this.handleChangeReno}
+                  />
+                } />
+            <Route exact path="/reno-step2" render={(routeProps) =>
+                  <RenoStep2 {...routeProps}
+
+                  />
+                } />
+            <Route exact path="/reno-step3" render={(routeProps) =>
+                  <RenoStep3 {...routeProps}
+
+                  />
+                } />
             <Route exact path="/register" component={Register}/>
             <Route exact path="/login" component={Login} />
             <Switch>

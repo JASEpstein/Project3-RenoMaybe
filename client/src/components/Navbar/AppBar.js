@@ -20,6 +20,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import LogoutButton from './LogoutButton';
 
 
 
@@ -114,7 +115,7 @@ export default function MenuAppBar(props) {
   function handleClose() {
     setAnchorEl(null);
   }
-
+  
   return (
     <div className={classes.root}>
       {/* <FormGroup>
@@ -159,7 +160,8 @@ export default function MenuAppBar(props) {
                  <div>
                     <MenuItem href={'/dashboard'} onClick={handleClose}>Profile</MenuItem>
                     <MenuItem href={'/dashboard'} onClick={handleClose}>My Renovations</MenuItem>
-
+                    <MenuItem onClick={() => props.children}>
+                    </MenuItem>
                  </div>
                {/* )} */}
               </Menu>

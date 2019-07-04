@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -325,7 +326,7 @@ export default function TextFields({zillowRequest, formInput, handleChange}) {
         </Grid>
 
         <Grid item xs={12}>
-          <Button onClick={(e) => {zillowRequest(e)}} variant="contained" color="primary" className={classes.button}>
+          <Button component={Link} to="/search-results" onClick={(e) => {zillowRequest(e)}} variant="contained" color="primary" className={classes.button}>
             Submit
           </Button>
         </Grid>
