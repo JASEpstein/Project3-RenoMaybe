@@ -26,6 +26,7 @@ import Landing from '../Landing';
 import RenoStep1 from '../Renovations/Step1';
 import RenoStep2 from '../Renovations/Step2';
 import RenoStep3 from '../Renovations/Step3';
+import MVP from '../Renovations/MVP'
 
 
 
@@ -131,7 +132,10 @@ class App extends Component {
                   asOf={this.state.zillowData.asOf}
                   />
                 } />
-            <Route exact path="/reno-step1" render={(routeProps) =>
+            <Route exact path="/MVP-selectors" render={(routeProps) =>
+              <MVP/>
+            } /> 
+            {/* <Route exact path="/reno-step1" render={(routeProps) =>
                   <RenoStep1 {...routeProps}
                   handleChange={this.handleChangeReno}
                   />
@@ -145,7 +149,7 @@ class App extends Component {
                   <RenoStep3 {...routeProps}
 
                   />
-                } />
+                } /> */}
             <Route exact path="/register" component={Register}/>
             <Route exact path="/login" component={Login} />
             <Switch>
