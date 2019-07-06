@@ -26,7 +26,8 @@ import Landing from '../Landing';
 import RenoStep1 from '../Renovations/Step1';
 import RenoStep2 from '../Renovations/Step2';
 import RenoStep3 from '../Renovations/Step3';
-import MVP from '../Renovations/MVP'
+import MVP2 from '../Renovations/MVP2'
+import FinalResults from '../FinalResults/FinalResults';
 
 
 
@@ -59,7 +60,9 @@ class App extends Component {
       formZip: ''
     },
     zillowData: {},
-    renoChoices: {},
+    renoChoices: {
+      renoValue: ''
+    },
   }
   //Methods
   zillowRequest = (e) => {
@@ -105,6 +108,8 @@ class App extends Component {
       }
     })
   }
+
+
   
  
 //Render
@@ -133,7 +138,16 @@ class App extends Component {
                   />
                 } />
             <Route exact path="/MVP-selectors" render={(routeProps) =>
-              <MVP/>
+                  <MVP2 {...routeProps}
+                  handleChangeReno={this.handleChangeReno}
+                  renoChoices={this.state.renoChoices}
+                  zEstimate={this.state.zillowData.zEstimate}
+                  />
+                } /> 
+            <Route exact path="/final-results" render={(routeProps) =>
+                  <FinalResults
+                  renoChoices={this.state.renoChoices.renoValue}
+                  />
             } /> 
             {/* <Route exact path="/reno-step1" render={(routeProps) =>
                   <RenoStep1 {...routeProps}

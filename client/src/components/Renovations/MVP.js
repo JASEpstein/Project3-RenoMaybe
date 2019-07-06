@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 // import Input from '@material-ui/core/Input';
 // import OutlinedInput from '@material-ui/core/OutlinedInput';
 // import FilledInput from '@material-ui/core/FilledInput';
@@ -10,7 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 
-import RenoData from '../../data/National.json';
+import RenoData from '../../data/National.js/index.js';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,11 +33,12 @@ const useStyles = makeStyles(theme => ({
 export default function SimpleSelect() {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    room: '',
-    type: '',
+    category: '',
     quality:'',
-    emptyOrNot: false,
   });
+  const [filter, setFilter] = React.useState({
+      filterArray: [],
+  })
 
 //   const inputLabel = React.useRef(null);
 //   const [labelWidth, setLabelWidth] = React.useState(0);
@@ -51,32 +53,41 @@ export default function SimpleSelect() {
     }));
   }
 
-  function checkValues(projectItem) {
-    
+  function filterByRoom(event) {
+    const RenoDataFilter = RenoData.filter(item => {
+        return item.Category === values.category
+        })
+    const filterArrayUpdate = {filterArray : RenoDataFilter}
+    setFilter(filterArrayUpdate)
+    console.log(filter.filterArray);
   }
 
-  function renderBoxOptions() {
-    if (values.emptyOrNot === true) {
-        RenoData.map(projectItem => (
-            if(projectItem.Category === values.room && projectItem.Quality === values.quality) {
-                setValues({emptyOrNot: true})
-                return <MenuItem></MenuItem>
-            }
-        ))
-    
-    }
+  function filterByQuality(event) {
+    values.filterArray = values.filterArray.filter(item => {
+        return item.Quality === values.quality
+    })
+  }
+
+  function renderTypeSelections() {
+      if(values.filterArray){
+        values.filterArray.map(element => {
+            return document.getElementById('typeSelectorBox').appendChild(`<MenuItem value={element.Project}>{element.Project}</MenuItem>`)
+        })
+      } else {
+          return 
+      }
   }
 
   return (
     <form className={classes.root} autoComplete="off">
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="room">Room</InputLabel>
+        <InputLabel htmlFor="category">Room</InputLabel>
         <Select
-          value={values.room}
-          onChange={handleChange}
+          value={values.category}
+          onChange={(e) => {handleChange(e); filterByRoom(e) }}
           inputProps={{
-            name: 'room',
-            id: 'room',
+            name: 'category',
+            id: 'category',
           }}
         >
         <MenuItem value="General">General</MenuItem>
@@ -91,19 +102,18 @@ export default function SimpleSelect() {
         <InputLabel htmlFor="quality">Quality</InputLabel>
         <Select
           value={values.quality}
-          onChange={handleChange}
+          onChange={(e) => {handleChange(e); filterByQuality(e)}}
           inputProps={{
             name: 'quality',
             id: 'quality',
           }}
         >
-        
         <MenuItem value="Midrange">$$</MenuItem>
         <MenuItem value="Upscale">$$$</MenuItem>
         </Select>
       </FormControl>
 
-      <FormControl className={classes.formControl}>
+      <FormControl id={'typeSelectBox'} className={classes.formControl}>
         <InputLabel htmlFor="project">Type</InputLabel>
         <Select
           value={values.type}
@@ -113,6 +123,9 @@ export default function SimpleSelect() {
             id: 'project',
           }}
         >
+        {filter.filterArray.map(element => {
+            return <MenuItem value={element.Project}>{element.Project}</MenuItem> 
+        })}
         </Select>
       </FormControl>
 

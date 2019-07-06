@@ -3,167 +3,167 @@
   "Project": "Backyard Patio",
   "Quality": "Midrange",
   "Category": "Outside",
-  "Job Cost": "$54,130",
-   "Resale Value": "$25,769",
-   "Cost Recouped": "47.6%"
+  "JobCost": "$54,130",
+   "ResaleValue": "25769",
+   "CostRecouped": "47.6%"
  },
  {
   "Project": "Bathroom Addition",
   "Quality": "Midrange",
   "Category": "Bathroom",
-  "Job Cost": "$44,717",
-   "Resale Value": "$26,769",
-   "Cost Recouped": "59.9%"
+  "JobCost": "$44,717",
+   "ResaleValue": "26769",
+   "CostRecouped": "59.9%"
  },
  {
   "Project": "Bathroom Addition",
   "Quality": "Upscale",
   "Category": "Bathroom", 
-  "Job Cost": "$83,869",
-   "Resale Value": "$45,752",
-   "Cost Recouped": "54.6%"
+  "JobCost": "$83,869",
+   "ResaleValue": "45752",
+   "CostRecouped": "54.6%"
  },
  {
   "Project": "Bathroom Remodel",
   "Quality": "Midrange",
   "Category": "Bathroom", 
-  "Job Cost": "$19,134",
-   "Resale Value": "$13,422",
-   "Cost Recouped": "70.1%"
+  "JobCost": "$19,134",
+   "ResaleValue": "13422",
+   "CostRecouped": "70.1%"
  },
  {
   "Project": "Bathroom Remodel",
   "Quality": "Upscale",
   "Category": "Bathroom", 
-  "Job Cost": "$61,662",
-   "Resale Value": "$34,633",
-   "Cost Recouped": "56.2%"
+  "JobCost": "$61,662",
+   "ResaleValue": "34633",
+   "CostRecouped": "56.2%"
  },
  {
   "Project": "Deck Addition (Composite)",
   "Quality": "Midrange",
   "Category": "Outside", 
-  "Job Cost": "$17,668",
-   "Resale Value": "$11,239",
-   "Cost Recouped": "63.6%"
+  "JobCost": "$17,668",
+   "ResaleValue": "11239",
+   "CostRecouped": "63.6%"
  },
  {
   "Project": "Deck Addition (Wood)",
   "Quality": "Midrange",
   "Category": "Outside", 
-  "Job Cost": "$10,950",
-   "Resale Value": "$9,065",
-   "Cost Recouped": "82.8%"
+  "JobCost": "$10,950",
+   "ResaleValue": "9065",
+   "CostRecouped": "82.8%"
  },
  {
   "Project": "Entry Door Replacement (Steel)",
   "Quality": "Midrange",
   "Category": "General", 
-  "Job Cost": "$1,471",
-   "Resale Value": "$1,344",
-   "Cost Recouped": "91.3%"
+  "JobCost": "$1,471",
+   "ResaleValue": "1344",
+   "CostRecouped": "91.3%"
  },
  {
   "Project": "Garage Door Replacement",
   "Quality": "Upscale",
   "Category": "General", 
-  "Job Cost": "$3,470",
-   "Resale Value": "$3,411",
-   "Cost Recouped": "98.3%"
+  "JobCost": "$3,470",
+   "ResaleValue": "3411",
+   "CostRecouped": "98.3%"
  },
  {
   "Project": "Grand Entrance (Fiberglass)",
   "Quality": "Upscale",
   "Category": "General", 
-  "Job Cost": "$8,591",
-   "Resale Value": "$5,809",
-   "Cost Recouped": "67.6%"
+  "JobCost": "$8,591",
+   "ResaleValue": "5809",
+   "CostRecouped": "67.6%"
  },
  {
   "Project": "Major Kitchen Remodel",
   "Quality": "Midrange",
   "Category": "Kitchen", 
-  "Job Cost": "$63,829",
-   "Resale Value": "$37,637",
-   "Cost Recouped": "59.0%"
+  "JobCost": "$63,829",
+   "ResaleValue": "37637",
+   "CostRecouped": "59.0%"
  },
  {
   "Project": "Major Kitchen Remodel",
   "Quality": "Upscale",
   "Category": "Kitchen", 
-  "Job Cost": "$125,721",
-   "Resale Value": "$67,212",
-   "Cost Recouped": "53.5%"
+  "JobCost": "$125,721",
+   "ResaleValue": "67212",
+   "CostRecouped": "53.5%"
  },
  {
   "Project": "Manufactured Stone Veneer",
   "Quality": "Midrange",
   "Category": "General", 
-  "Job Cost": "$8,221",
-   "Resale Value": "$7,986",
-   "Cost Recouped": "97.1%"
+  "JobCost": "$8,221",
+   "ResaleValue": "7986",
+   "CostRecouped": "97.1%"
  },
  {
   "Project": "Master Suite Addition",
   "Quality": "Midrange",
   "Category": "Bedroom", 
-  "Job Cost": "$123,420",
-   "Resale Value": "$69,807",
-   "Cost Recouped": "56.6%"
+  "JobCost": "$123,420",
+   "ResaleValue": "69807",
+   "CostRecouped": "56.6%"
  },
  {
   "Project": "Master Suite Addition",
   "Quality": "Upscale",
   "Category": "Bedroom", 
-  "Job Cost": "$256,229",
-   "Resale Value": "$123,797",
-   "Cost Recouped": "48.3%"
+  "JobCost": "$256,229",
+   "ResaleValue": "123797",
+   "CostRecouped": "48.3%"
  },
  {
   "Project": "Minor Kitchen Remodel",
   "Quality": "Midrange",
   "Category": "Kitchen", 
-  "Resale Value": "$17,193",
-   "Cost Recouped": "81.1%"
+  "ResaleValue": "17193",
+   "CostRecouped": "81.1%"
  },
  {
   "Project": "Roofing Replacement (Asphalt Shingles)",
   "Quality": "Midrange",
   "Category": "General", 
-  "Job Cost": "$20,939",
-   "Resale Value": "$14,320",
-   "Cost Recouped": "68.4%"
+  "JobCost": "$20,939",
+   "ResaleValue": "14320",
+   "CostRecouped": "68.4%"
  },
  {
   "Project": "Siding Replacement",
   "Quality": "Midrange",
   "Category": "General", 
-  "Job Cost": "$15,072",
-   "Resale Value": "$11,554",
-   "Cost Recouped": "76.7%"
+  "JobCost": "$15,072",
+   "ResaleValue": "11554",
+   "CostRecouped": "76.7%"
  },
  {
   "Project": "Universal Design Bathroom Remodel",
   "Quality": "Midrange",
   "Category": "Bathroom", 
-  "Job Cost": "$16,393",
-   "Resale Value": "$11,581",
-   "Cost Recouped": "70.6%"
+  "JobCost": "$16,393",
+   "ResaleValue": "11581",
+   "CostRecouped": "70.6%"
  },
  {
   "Project": "Window Replacement (Vinyl)",
   "Quality": "Upscale",
   "Category": "General", 
-  "Job Cost": "$15,955",
-   "Resale Value": "$11,855",
-   "Cost Recouped": "74.3%"
+  "JobCost": "$15,955",
+   "ResaleValue": "11855",
+   "CostRecouped": "74.3%"
  },
  {
   "Project": "Window Replacement (Wood)",
   "Quality": "Upscale",
   "Category": "General", 
-  "Job Cost": "$19,391",
-   "Resale Value": "$13,468",
-   "Cost Recouped": "69.5%"
+  "JobCost": "$19,391",
+   "ResaleValue": "13468",
+   "CostRecouped": "69.5%"
  }
 ]

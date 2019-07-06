@@ -25,21 +25,26 @@ const useStyles = makeStyles(theme => ({
 export default function SearchResults(props) {
     const classes = useStyles(); 
 
+    function calculateNewValue () {
+        console.log(props.zillowData)
+        console.log(props.RenoChoices);
+        return props.zillowData + props.RenoChoices.renoValue
+    }
+
     return(
         <Card className={classes.card}>
             <CardContent>
                 <Typography className={classes.header} variant="h2" component="h2">
-                    Your house is valued at: 
+                    Your new house value is: 
                     <br/>
-                    <NumberFormat value={props.zEstimate} thousandSeparator={true} prefix='$' displayType={'text'}/>
-                    <br/>
-                    as of: {props.asOf}
+                    
+                    {/* <NumberFormat value={calculateNewValue} thousandSeparator={true} prefix='$' displayType={'text'}/> */}
                 </Typography>
 
 
 
                 <Button variant="contained" color="primary" component={Link} to="/MVP-selectors" className={classes.button}>
-                    Let's Renovate!
+                    Add More
                 </Button>
             </CardContent>
         </Card>
