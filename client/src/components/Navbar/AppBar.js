@@ -156,14 +156,14 @@ export default function MenuAppBar(props) {
                 open={open}
                 onClose={handleClose}
               >
-               {/* {props && ( */}
+               {auth && (
                  <div>
                     <MenuItem href={'/dashboard'} onClick={handleClose}>Profile</MenuItem>
                     <MenuItem href={'/dashboard'} onClick={handleClose}>My Renovations</MenuItem>
                     <MenuItem onClick={() => props.children}>
                     </MenuItem>
                  </div>
-               {/* )} */}
+               )} 
               </Menu>
             </div>
           }

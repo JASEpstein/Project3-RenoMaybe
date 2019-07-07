@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+// import { Link } from 'react-router-dom';
+// import classNames from 'classnames';
 import NumberFormat from 'react-number-format';
 // import Input from '@material-ui/core/Input';
 // import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -106,7 +106,7 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
   function addValues(zEstimate) {
     const zInt = parseInt(zEstimate);
     const valueInt = parseInt(finalValue.value);
-    return zInt + valueInt
+    return zInt + valueInt;
   }
 //   function calculateNewValue(props) {
 //     return props.zillowData
@@ -151,9 +151,9 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
       </Button>
       {/* component={Link} to="/final-results" */}
 
-      <Button variant="contained" color="primary" onClick={test} className={classes.button}>
+      {/* <Button variant="contained" color="primary" onClick={test} className={classes.button}>
         Test
-      </Button>
+      </Button> */}
         
     </form>
 
