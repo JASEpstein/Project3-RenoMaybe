@@ -5,6 +5,10 @@ const routes = require("./routes");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 const users = require('./routes/api/users')
 
 const app = express();
@@ -20,7 +24,7 @@ app.use(bodyParser.json());
 const db = require('./config/keys').MONGODB_URI;
 
 mongoose.connect(
-  db, 
+  process.env.MONGODB_URI || db, 
   {useNewUrlParser: true})
   
   .then(() => console.log("Mongoose Connected!!"))
