@@ -6,12 +6,17 @@ import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Link } from 'react-router-dom';
+import { SpringSpinner } from 'react-epic-spinners';
 
 const useStyles = makeStyles(theme => ({
     card: {
         minWidth: 275,
         maxWidth: 600,
         margin: '0 auto',
+        marginTop: '20px',
+    },
+    cardcontent: {
+        
     },
     header: {
       alignItems: 'center',
@@ -31,7 +36,20 @@ export default function SearchResults(props) {
                 <Typography className={classes.header} variant="h2" component="h2">
                     Your house is valued at: 
                     <br/>
-                    <NumberFormat value={props.zEstimate} thousandSeparator={true} prefix='$' displayType={'text'}/>
+                    
+                    <div>
+                        {props.zEstimate ? 
+                        <NumberFormat 
+                            value={props.zEstimate} 
+                            thousandSeparator={true} 
+                            prefix='$' 
+                            displayType={'text'}
+                        /> :
+                        <SpringSpinner 
+                            color={'#3f51b5'}
+                        />} 
+                    </div>
+                    
                     <br/>
                     as of: {props.asOf}
                 </Typography>
