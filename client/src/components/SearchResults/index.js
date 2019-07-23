@@ -6,7 +6,8 @@ import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Link } from 'react-router-dom';
-import { SpringSpinner } from 'react-epic-spinners';
+import { HalfCircleSpinner } from 'react-epic-spinners';
+import { styled } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -14,9 +15,12 @@ const useStyles = makeStyles(theme => ({
         maxWidth: 600,
         margin: '0 auto',
         marginTop: '20px',
+        display: 'flex', 
+        flexDirection: 'column', 
+        justifyContent: 'center',
     },
     cardcontent: {
-        
+
     },
     header: {
       alignItems: 'center',
@@ -27,16 +31,21 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+const Header = styled(Typography)({
+
+})
+
 export default function SearchResults(props) {
     const classes = useStyles(); 
 
     return(
         <Card className={classes.card}>
             <CardContent>
+                <Header >
+                    Your house is valued at:
+                </Header>
+                <br/>
                 <Typography className={classes.header} variant="h2" component="h2">
-                    Your house is valued at: 
-                    <br/>
-                    
                     <div>
                         {props.zEstimate ? 
                         <NumberFormat 
@@ -45,13 +54,16 @@ export default function SearchResults(props) {
                             prefix='$' 
                             displayType={'text'}
                         /> :
-                        <SpringSpinner 
+                        <HalfCircleSpinner 
                             color={'#3f51b5'}
                         />} 
                     </div>
+                </Typography>
                     
-                    <br/>
-                    as of: {props.asOf}
+                    
+                <br/>
+                <Typography>
+                    (as of: {props.asOf})
                 </Typography>
 
 

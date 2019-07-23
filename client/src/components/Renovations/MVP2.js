@@ -12,14 +12,23 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 import RenoData from '../../data/National.json';
-import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+  },
+  card: {
+    minWidth: 275,
+    maxWidth: 900,
+    width: 800,
+    margin: '0 auto',
+    marginTop: '20px',
   },
   formControl: {
     margin: theme.spacing(1),
@@ -113,58 +122,71 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
 //   }
 
   return (
-    <div>
-    <form className={classes.root} autoComplete="off">
-      <FormControl id={'typeSelectBox'} className={classes.formControl}>
-        <InputLabel htmlFor="project">Select</InputLabel>
-        <Select
-          value={values.project}
-          onChange={handleChange}
-          inputProps={{
-            name: 'project',
-            id: 'project',
-          }}
-        >
-        {RenoData.map(element => {
-            return <MenuItem value={element.Project}>{element.Project}</MenuItem> 
-        })}
-        </Select>
-      </FormControl>
+    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        <Card className={classes.card}>
+            <CardContent>
+                <Typography className={classes.header} variant="h2" component="h2">
+                    Your house value is: 
+                <br/>
+                
+                <NumberFormat value={addValues(zEstimate)} thousandSeparator={true} prefix='$' displayType={'text'}/>
+                </Typography>
+            </CardContent>
+        </Card>
 
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="quality">Quality</InputLabel>
-        <Select
-          value={values.quality}
-          onChange={handleChange}
-          inputProps={{
-            name: 'quality',
-            id: 'quality',
-          }}
-        >
-        <MenuItem value="Midrange">$$</MenuItem>
-        <MenuItem value="Upscale">$$$</MenuItem>
-        </Select>
-      </FormControl>
+        <Card className={classes.card}>
+            <CardContent>
+                <form className={classes.root} autoComplete="off">
+                    <FormControl id={'typeSelectBox'} className={classes.formControl}>
+                <InputLabel htmlFor="project">Select</InputLabel>
+                <Select
+                value={values.project}
+                onChange={handleChange}
+                inputProps={{
+                    name: 'project',
+                    id: 'project',
+                }}
+                >
+                {RenoData.map(element => {
+                    return <MenuItem value={element.Project}>{element.Project}</MenuItem> 
+                })}
+                </Select>
+            </FormControl>
 
-      <Button variant="contained" color="primary" onClick={(e) => {submitSelection(e)}} className={classes.button}>
-        Submit
-      </Button>
-      {/* component={Link} to="/final-results" */}
+                    <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="quality">Quality</InputLabel>
+                <Select
+                value={values.quality}
+                onChange={handleChange}
+                inputProps={{
+                    name: 'quality',
+                    id: 'quality',
+                }}
+                >
+                <MenuItem value="Midrange">$$</MenuItem>
+                <MenuItem value="Upscale">$$$</MenuItem>
+                </Select>
+            </FormControl>
 
-      {/* <Button variant="contained" color="primary" onClick={test} className={classes.button}>
-        Test
-      </Button> */}
-        
-    </form>
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={(e) => {submitSelection(e)}} 
+                        className={classes.button}>
+                        Submit
+                    </Button>
+                    {/* component={Link} to="/final-results" */}
 
-    <br/>
-        <Typography className={classes.header} variant="h2" component="h2">
-            Your new house value is: 
-        <br/>
-          
-        <NumberFormat value={addValues(zEstimate)} thousandSeparator={true} prefix='$' displayType={'text'}/>
-    </Typography>
+                    {/* <Button variant="contained" color="primary" onClick={test} className={classes.button}>
+                        Test
+                    </Button> */}
+                </form>
+            </CardContent>
+        </Card>
+
+
+
     </div>
-
+   
   );
 }

@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 275,
     maxWidth: 600,
     margin: '0 auto',
+    marginTop: '20px',
   },
   container: {
     display: 'flex',
@@ -259,7 +260,7 @@ export default function TextFields({zillowRequest, formInput, handleChange}) {
   return (
   <Card className={classes.card}>
     <CardContent>
-      <form className={classes.container} noValidate autoComplete="off">
+      <form className={classes.container} autoComplete="off">
         <Grid container alignItems="center" spacing={3}>
         <Grid item xs={12}>
           <TextField
