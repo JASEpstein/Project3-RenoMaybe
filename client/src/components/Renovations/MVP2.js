@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from 'react-router-dom';
 // import classNames from 'classnames';
@@ -44,15 +44,25 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno}) {
   const classes = useStyles();
-  const [values, setValues] = React.useState({
+  
+  const [values, setValues] = useState({
     category: '',
     quality:'',
     project: '',
   });
-  const [finalValue, setFinalValue] = React.useState({
+
+  const [finalValue, setFinalValue] = useState({
       value: '',
   })
-  
+
+  const [renoChoiceTotals, setRenoChoiceTotals] = useState({
+      total: '',
+  })
+
+  const [runningTotal, setRunningTotal] = useState({
+      total: zEstimate,
+  })
+
   function test() {
       console.log(finalValue.value);
       console.log(zEstimate);
@@ -62,6 +72,10 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
 //   React.useEffect(() => {
 //     setLabelWidth(inputLabel.current.offsetWidth);
 //   }, []);
+
+  function addTotals(event) {
+    setRunningTotal(total => total + renoChoiceTotals.total)
+  }
 
   function handleChange(event) {
     setValues(oldValues => ({
@@ -115,7 +129,11 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
   function addValues(zEstimate) {
     const zInt = parseInt(zEstimate);
     const valueInt = parseInt(finalValue.value);
-    return zInt + valueInt;
+    if(!zInt){
+        return valueInt
+    } else {
+        return valueInt + zInt;
+    }
   }
 //   function calculateNewValue(props) {
 //     return props.zillowData
@@ -129,7 +147,7 @@ export default function SimpleSelect({zEstimate, renoChoices, handleChangeReno})
                     Your house value is: 
                 <br/>
                 
-                <NumberFormat value={addValues(zEstimate)} thousandSeparator={true} prefix='$' displayType={'text'}/>
+                <NumberFormat value={runningTotal.value} thousandSeparator={true} prefix='$' displayType={'text'}/>
                 </Typography>
             </CardContent>
         </Card>
